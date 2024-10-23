@@ -1,0 +1,1164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head id="Head1">
+    <link rel="shortcut icon" href="Images/mono.jpg" />
+    <title>Board of Intermediate & Secondary Education,Lahore</title>
+    <script src="Scripts/PIE.js" type="text/javascript"></script>
+    <script src="Scripts/json2.js" type="text/javascript"></script>
+    <script src="Scripts/DateFormatter.js" type="text/javascript"></script>
+    <script
+      src="Scripts/BISE_NewRegistration.js"
+      type="text/javascript"
+    ></script>
+    <script
+      src="http://code.jquery.com/jquery-1.10.1.min.js"
+      type="text/javascript"
+    ></script>
+    <style type="text/css">
+      @media print {
+        .printOption {
+          display: none;
+          size: landscape;
+        }
+      }
+      .div1 {
+        height: 0.9em;
+        width: 0.8em;
+        -webkit-border-radius: 0.5em;
+        -moz-border-radius: 0.5em;
+        border: 0.1em solid Black;
+        background-color: White;
+        behavior: url("Scripts/PIE.htc");
+        border-radius: 0.5em;
+        margin: auto;
+        text-align: center;
+        font-size: 0.8em;
+      }
+      .div2 {
+        height: 1em;
+        text-align: center;
+        width: 1em;
+        -webkit-border-radius: 1em;
+        -moz-border-radius: 1em;
+        border: 0.1em solid Black;
+        behavior: url("Scripts/PIE.htc");
+        border-radius: 1em;
+        background-color: Black;
+        margin: auto;
+        font-size: 1em;
+      }
+
+      .P1 {
+        font-family: sans-serif;
+        text-align: center;
+        font-size: 0.1em;
+        margin-top: -2em !important;
+      }
+      .div3 {
+        font-weight: bold;
+        font-size: large;
+      }
+      .style2 {
+        font-size: x-large;
+        text-align: center;
+      }
+      .style4 {
+        text-align: center;
+        font-size: large;
+        font-weight: 700;
+      }
+      .style6 {
+        width: 6%;
+        font-weight: bold;
+        font-size: 16px;
+      }
+      .style7 {
+        text-align: left;
+        width: 282px;
+      }
+      .style8 {
+        width: 278px;
+      }
+      .style9 {
+        font-size: 16px;
+        text-decoration: underline;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      .style10 {
+        width: 231px;
+      }
+    </style>
+    <script type="text/javascript">
+      ///code by zahid
+
+      var array = new Array();
+      var RollLength = 0;
+      var counter = 0;
+      function FillBoxes() {
+        var roll = document.getElementById("hdrollno1").value;
+        var counter = 0;
+        while (counter < 6) {
+          array[5 - counter] = roll % 10;
+          roll = Math.floor(roll / 10);
+          counter++;
+        }
+        createTable();
+      }
+      function createTable() {
+        var root = document.getElementById("mydiv");
+        var tab = document.createElement("table");
+        tab.className = "mytable";
+        var tbo = document.createElement("tbody");
+        var row, cell;
+        var counter = 0;
+        ////header
+        row = document.createElement("tr");
+        cell = document.createElement("td");
+        cell.setAttribute("colspan", "6");
+        cell.setAttribute("Align", "center");
+        var div = document.createElement("div");
+        div.setAttribute("class", "div3");
+        div.innerHTML = "Roll No";
+        cell.appendChild(div);
+        row.appendChild(cell);
+        tbo.appendChild(row);
+        ///
+        ////rollno
+        row = document.createElement("tr");
+        for (var i = 0; i < 6; i++) {
+          cell = document.createElement("td");
+          cell.setAttribute("Align", "center");
+          var div = document.createElement("div");
+          div.setAttribute("class", "div3");
+          div.innerHTML = array[i];
+          cell.appendChild(div);
+          row.appendChild(cell);
+        }
+        tbo.appendChild(row);
+
+        ////
+        for (var i = 0; i < 10; i++) {
+          row = document.createElement("tr");
+          for (var j = 0; j < 6; j++) {
+            cell = document.createElement("td");
+
+            if (array[j] == i) {
+              var div = document.createElement("img");
+              div.src = "Images/Blackhole.png";
+              div.setAttribute("class", "div2");
+              counter++;
+              cell.appendChild(div);
+            } else {
+              var div = document.createElement("div");
+              div.setAttribute("class", "div1");
+              cell.appendChild(div);
+              div.innerHTML = i;
+            }
+            row.appendChild(cell);
+          }
+          tbo.appendChild(row);
+        }
+        tab.appendChild(tbo);
+        root.appendChild(tab);
+      }
+    </script>
+  </head>
+  <body>
+    <form method="post" action="./ResultPart2.aspx" id="form1">
+      <div class="aspNetHidden">
+        <input
+          type="hidden"
+          name="__VIEWSTATE"
+          id="__VIEWSTATE"
+          value="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aW9uYWwgcmVzdWx0IGludGltYXRpb24gaXMgaXNzdWVkIGFzIGEgbm90aWNlIG9ubHkuIEVycm9ycyBhbmQgb21pc3Npb25zIGV4Y2VwdGVkLjx1PiBJZiBhIGNhbmRpZGF0ZSBmaW5kcyBhbnkgZGlzY3JlcGFuY3kgaW4gdGhlIFJlc3VsdCBJbnRpbWF0aW9uIG9yIGRlc2lyZXMgY29ycmVjdGlvbiBpbiBhbnkgb2YgdGhlIHBhcnRpY3VsYXJzLCBoZS9zaGUgbWF5IGNvbnRhY3QgdGhlIEJvYXJkIHdpdGhpbiAzMCBkYXlzIGFmdGVyIGRlY2xhcmF0aW9uIG9mIHRoZSByZXN1bHQuPC91PiBBbnkgZW50cnkgYXBwZWFyaW5nIGluIGl0IGRvZXMgbm90IGl0c2VsZiBjb25mZXIgYW55IHJpZ2h0IG9yIHByaXZpbGVnZSBpbmRlcGVuZGVudGx5IGZvciB0aGUgZ3JhbnQgb2YgcHJvcGVyIGNlcnRpZmljYXRlLCB3aGljaCB3aWxsIGJlIGlzc3VlZCB1bmRlciB0aGUgUnVsZXMvIFJlZ3VsYXRpb25zLjxiciAvPihpaSlUaGUgU3RhciAoKikgaW5kaWNhdGVzIHRoYXQgdGhlIGNhbmRpZGF0ZSBoYXMgcGFzc2VkIHRoZSBzdWJqZWN0L3Mgd2l0aCBjb25jZXNzaW9uYWwgbWFya3MgdW5kZXIgQm9hcmQgUnVsZS4gSW4gY2FzZSBoZS9zaGUgaXMgbm90IHdpbGxpbmcgdG8gYWNjZXB0IHRoZSBjb25jZXNzaW9uYWwgbWFya3MsIG5lY2Vzc2FyeSBwZXJtaXNzaW9uIHRvIHJlYXBwZWFyIGluIHRoZSBzdWJqZWN0L3MgbWF5IGJlIG9idGFpbmVkIHdpdGhpbiB0aGUgc2NoZWR1bGUgZm9yIHN1Ym1pc3Npb24gb2YgYWRtaXNzaW9uIGZvcm0gYW5kIGZlZSBmb3IgdGhlIG5leHQgaW1tZWRpYXRlIGV4YW1pbmF0aW9uIHByb3ZpZGVkIGhlL3NoZSBoYXMgdGhlIGNoYW5jZS9zIHRvIHJlLWFwcGVhciBhcyBhIGNvbXBhcnRtZW50IGNhbmRpZGF0ZSBpbiB0aGUgc2FpZCBleGFtaW5hdGlvbi48YnIgLz4oaWlpKUNhbmRpZGF0ZSBpbnRlbmRpbmcgdG8gYXBwbHkgZm9yIDx1PnJlLWNoZWNraW5nIDwvdT4gb2YgaGlzL2hlciBwYXBlci9zIG1heSBhcHBseSA8Yj5PbmxpbmU8L2I+PHU+IHdpdGhpbiAxNSBkYXlzIGFmdGVyIGRlY2xhcmF0aW9uIG9mIHRoZSByZXN1bHQuPC91PjxiciAvPihpdilBIGNhbmRpZGF0ZSBpbnRlbmRpbmcgdG8gaW1wcm92ZSBoaXMvaGVyIGdyYWRlIG9yIG1hcmtzIGFyZSBhbGxvd2VkIHRvIGFwcGVhciBpbiBTdWJqZWN0L3Mgb3IgUGFydC1JIG9yIFBhcnQtSUkgb3IgYm90aCB3aXRoIG9uZSBleGFtaW5hdGlvbiBvcHBvcnR1bml0eSB3aXRoaW4gb25lIHllYXIgb2YgcGFzc2luZyByZWxldmFudCBleGFtaW5hdGlvbiBpbiB0aGUgc2FtZSBncm91cC9zdWJqZWN0cyBpbiBjdXJyZW50L3ByZXZhbGVudCBzeWxsYWJ1cy4gSWYgdGhlIGNhbmRpZGF0ZSBxdWFsaWZpZWQgc3ViamVjdC9zIHdpdGggY29uY2Vzc2lvbmFsIG1hcmtzLCBoZS9zaGUgd2lsbCBhbHNvIGhhdmUgdG8gYXBwZWFyIGFuZCBxdWFsaWZ5IGluIHRob3NlIHN1YmplY3QvcyBmb3IgaW1wcm92ZW1lbnQgb2YgbWFya3MvZ3JhZGUuIEluIGNhc2UgYSBjYW5kaWRhdGUgZmFpbHMgdG8gaW1wcm92ZSBoaXMvaGVyIG1hcmtzL2dyYWRlIGluIGFueSBwYXJ0IG9yIHN1YmplY3QvcywgaGlzL2hlciBwcmV2aW91cyByZXN1bHQgd2lsbCByZW1haW4gaW50YWN0LjxiciAvPiAodikJQSBjYW5kaWRhdGUgd2hvIHdhcyBkZWNsYXJlZCBmdWxsIGZhaWwgaW4gdGhlIGV4YW1pbmF0aW9uIHdpbGwgaGF2ZSB0byBhcHBlYXIsIGlmIGhlIGludGVuZHMsIHVuZGVyIHByZXZhbGVudC9jdXJyZW50IHN5bGxhYnVzLjxiciAvPih2aSkJSWYgdGhlIHJlc3VsdCBpbnRpbWF0aW9uIGlzIGxvc3QsIHRoZSByZXN1bHQgaW50aW1hdGlvbiBjYW4gYmUgb2J0YWluZWQgYnkgdGhlIGNhbmRpZGF0ZSBvbiBwYXltZW50IG9mIHByZXNjcmliZWQgZmVlLmQCAQ9kFgJmD2QWAgIBDxYCHwNoZBgBBQ9HcmlkU3R1ZGVudERhdGEPPCsADAEIAgFk+C+AvpJQS1YVIiBoR1WX92kbQmNYLfd/nFNM3mGSldE="
+        />
+      </div>
+
+      <div class="aspNetHidden">
+        <input
+          type="hidden"
+          name="__VIEWSTATEGENERATOR"
+          id="__VIEWSTATEGENERATOR"
+          value="E2C98662"
+        />
+        <input
+          type="hidden"
+          name="__EVENTVALIDATION"
+          id="__EVENTVALIDATION"
+          value="/wEdAAVKXczEYRiH2MpR76aRAeqtH0vtbr5+ffvt1M8nZeor4LmlHGUHNs2spIfDVxH/v3LWdFoVPya/ulbTSAFhvlGiwcUAVDRHsmbBZ3sutBL2usuAA8oQnRXrquEMcAoXKvBi+L5q1IH8D4oF9WJAflmv"
+        />
+      </div>
+      <input name="hdrollno1" type="hidden" id="hdrollno1" />
+      <table cellspacing="0" cellpadding="0">
+        <tr>
+          <td style="width: 20%"></td>
+          <td
+            style="
+              background-position: center center;
+              width: 60%;
+              background-image: url('Images/back-logo.jpg');
+              background-repeat: no-repeat;
+            "
+          >
+            <table width="100%" cellspacing="0" cellpadding="0">
+              <tr>
+                <td colspan="3">
+                  <label
+                    id="lblError"
+                    style="
+                      color: Red;
+                      font-family: Arial Black;
+                      font-weight: bold;
+                    "
+                  >
+                    <br />
+                  </label>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="3" class="style2">
+                  <strong
+                    >BOARD OF INTERMEDIATE & SECONDARY EDUCATION</strong
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td colspan="3">
+                  <table style="width: 876px">
+                    <tr>
+                      <td class="style7">&nbsp;</td>
+                      <td rowspan="3" style="text-align: center" class="style8">
+                        <img
+                          id="ImgBoard"
+                          src="Images/mono.jpg"
+                          style="height: 84px; width: 91px"
+                        />
+                      </td>
+                      <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                      <td class="style7">
+                        <label id="lblRollNo0" style="font-weight: bold">
+                          Roll No:
+                        </label>
+                        &nbsp;&nbsp;&nbsp;<label
+                          id="lblRollNoval"
+                          style="
+                            font-weight: bold;
+                            font-size: large;
+                            text-decoration: underline;
+                          "
+                          >314894</label
+                        >
+                      </td>
+                      <td style="text-align: right">
+                        <label> Registration No:</label>
+                        <label
+                          id="lblRegNum"
+                          style="font-weight: bold; text-decoration: underline"
+                          >30034-23284-2021</label
+                        >
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="style7"></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" style="text-align: center">
+                        <label id="lblSession" style="font-weight: bold"
+                          >SECONDARY SCHOOL CERTIFICATE (ANNUAL) EXAMINATION</label
+                        >
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="style4" colspan="3">
+                        <label id="Label2"> GROUP: </label>
+                        <label id="lblGroup" style="text-decoration: underline"
+                          >HUMANITIES</label
+                        >
+                      </td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td style="text-align: center" class="style8"></td>
+                      <td></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td align="right"></td>
+                <td>
+                  <center style="width: 631px"></center>
+                </td>
+                <td rowspan="2" align="right">
+                  <input
+                    name="HiddenPicture"
+                    type="hidden"
+                    id="HiddenPicture"
+                  />
+                  <input type="hidden" name="hdPath" id="hdPath" />
+                  <input type="hidden" name="hdPrac" id="hdPrac" value="12" />
+                  <img
+                    src="Images/Test 2.jpg"
+                    alt="PIC"
+                    style="width: 124px; height: 115px"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <table
+                    style="
+                      width: 100%;
+                      font-size: 15px;
+                      font-family: 'Times New Roman', Times, serif;
+                    "
+                    cellspacing="8"
+                    cellpadding="0"
+                  >
+                    <tr></tr>
+                    <tr>
+                      <td class="style6">
+                        <label> Student Name:</label><b> </b>
+                      </td>
+                      <td
+                        style="width: 20%; text-decoration: underline"
+                        class="style9"
+                      >
+                        <label id="Name">Miss Rania</label>
+                      </td>
+                      <td
+                        id="Td1"
+                        style="width: 5%; text-align: left"
+                        align="right"
+                      >
+                        <label id="lblBFARM">59401-8549500-26</label>
+                        &nbsp;
+                      </td>
+                    </tr>
+                      </td>
+                    <tr>
+                      <td class="style6">
+                        <label id="lbldb"> Date Of Birth:</label><b> </b>
+                      </td>
+                      <td align="left" class="style9">
+                        <label id="lblDOB">28, Octuber</label>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td rowspan="2" class="style6">
+                        <label id="lblcen"> Institution/District:</label
+                        ><b> </b>
+                      </td>
+                      <td colspan="4" rowspan="2" class="style9">
+                        <label id="lblExamCenter"
+                          >GIRLS SECONDARY SCHOOL,Sialkot</label
+                        >
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+              <tr>
+                <td colspan="3">
+                  <table width="100%" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td colspan="2">
+                        <div>
+                          <table
+                            cellspacing="0"
+                            rules="all"
+                            id="GridStudentData"
+                            style="
+                              color: Black;
+                              border-width: 1px;
+                              border-style: solid;
+                              font-family: Arial;
+                              font-size: 12pt;
+                              width: 100%;
+                              border-collapse: collapse;
+                            "
+                          >
+                            <tr
+                              style="
+                                background-color: #cccccc;
+                                font-weight: bold;
+                              "
+                            >
+                              <th align="center" colspan="1" rowspan="2">
+                                SUBJECT
+                              </th>
+                              <th colspan="3">MAXIMUM MARKS</th>
+                              <th colspan="3">MARKS OBTAINED</th>
+                              <th align="center" colspan="1" rowspan="2">
+                                TOTAL
+                              </th>
+                              <th align="center" colspan="1" rowspan="2">
+                                PERCENTILE SCORE
+                              </th>
+                              <th align="center" colspan="1" rowspan="2">
+                                REL. GRADE
+                              </th>
+                              <th align="center" colspan="1" rowspan="2">
+                                STATUS
+                              </th>
+                            </tr>
+                            <tr
+                              style="
+                                background-color: #cccccc;
+                                font-weight: bold;
+                              "
+                            >
+                              <th scope="col">TH</th>
+                              <th scope="col">PR</th>
+                              <th scope="col">TOTAL</th>
+                              <th scope="col">TH-I</th>
+                              <th scope="col">TH-II</th>
+                              <th scope="col">PR-II</th>
+                              <th
+                                scope="col"
+                                style="
+                                  background-color: White;
+                                  border-width: 0px;
+                                  border-style: None;
+                                "
+                              >
+                                &nbsp;
+                              </th>
+                              <th
+                                scope="col"
+                                style="
+                                  background-color: White;
+                                  border-width: 0px;
+                                  border-style: None;
+                                "
+                              >
+                                &nbsp;
+                              </th>
+                            </tr>
+                            <tr style="height: 30px">
+                              <td style="width: 300px">
+                                TRANSLATION OF THE HOLY QURAN
+                              </td>
+                              <td
+                                align="center"
+                                valign="middle"
+                                style="background-color: #cccccc; width: 100px"
+                              >
+                                50+50=100
+                              </td>
+                              <td
+                                align="center"
+                                valign="middle"
+                                style="background-color: #cccccc; width: 50px"
+                              >
+                                --
+                              </td>
+                              <td
+                                align="center"
+                                valign="middle"
+                                style="background-color: #cccccc; width: 50px"
+                              >
+                                100
+                              </td>
+                              <td
+                                align="center"
+                                valign="middle"
+                                style="width: 50px"
+                              >
+                                19
+                              </td>
+                              <td
+                                align="center"
+                                valign="middle"
+                                style="width: 50px"
+                              >
+                                20
+                              </td>
+                              <td
+                                align="center"
+                                valign="middle"
+                                style="width: 50px"
+                              >
+                                --
+                              </td>
+                              <td
+                                align="center"
+                                valign="middle"
+                                style="width: 50px"
+                              >
+                                39
+                              </td>
+                              <td align="center" valign="middle">34.00</td>
+                              <td align="center" valign="middle">F</td>
+                              <td
+                                align="center"
+                                valign="middle"
+                                style="width: 50px"
+                              >
+                                Fail
+                              </td>
+                            </tr>
+                            <tr style="height: 30px">
+                              <td style="width: 300px">URDU</td>
+                              <td
+                                align="center"
+                                valign="middle"
+                                style="background-color: #cccccc; width: 100px"
+                              >
+                                75+75=150
+                              </td>
+                              <td
+                                align="center"
+                                valign="middle"
+                                style="background-color: #cccccc; width: 50px"
+                              >
+                                --
+                              </td>
+                              <td
+                                align="center"
+                                valign="middle"
+                                style="background-color: #cccccc; width: 50px"
+                              >
+                                150
+                              </td>
+                              <td
+                                align="center"
+                                valign="middle"
+                                style="width: 50px"
+                              >
+                                50
+                              </td>
+                              <td
+                                align="center"
+                                valign="middle"
+                                style="width: 50px"
+                              >
+                                49
+                              </td>
+                              <td
+                                align="center"
+                                valign="middle"
+                                style="width: 50px"
+                              >
+                                --
+                              </td>
+                              <td
+                                align="center"
+                                valign="middle"
+                                style="width: 50px"
+                              >
+                                99
+                              </td>
+                              <td align="center" valign="middle">67.00</td>
+                              <td align="center" valign="middle">C</td>
+                              <td
+                                align="center"
+                                valign="middle"
+                                style="width: 50px"
+                              >
+                                PASS
+                              </td>
+                            </tr>
+                            <tr style="height: 30px">
+                              <td style="width: 300px">ENGLISH</td>
+                              <td
+                                align="center"
+                                valign="middle"
+                                style="background-color: #cccccc; width: 100px"
+                              >
+                                75+75=150
+                              </td>
+                              <td
+                                align="center"
+                                valign="middle"
+                                style="background-color: #cccccc; width: 50px"
+                              >
+                                --
+                              </td>
+                              <td
+                                align="center"
+                                valign="middle"
+                                style="background-color: #cccccc; width: 50px"
+                              >
+                                150
+                              </td>
+                              <td
+                                align="center"
+                                valign="middle"
+                                style="width: 50px"
+                              >
+                                39
+                              </td>
+                              <td
+                                align="center"
+                                valign="middle"
+                                style="width: 50px"
+                              >
+                                30
+                              </td>
+                              <td
+                                align="center"
+                                valign="middle"
+                                style="width: 50px"
+                              >
+                                --
+                              </td>
+                              <td
+                                align="center"
+                                valign="middle"
+                                style="width: 50px"
+                              >
+                                69
+                              </td>
+                              <td align="center" valign="middle">39.00</td>
+                              <td align="center" valign="middle">F</td>
+                              <td
+                                align="center"
+                                valign="middle"
+                                style="width: 50px"
+                              >
+                                Fail
+                              </td>
+                            </tr>
+                            <tr style="height: 30px">
+                              <td style="width: 300px">ISLAMIYAT</td>
+                              <td
+                                align="center"
+                                valign="middle"
+                                style="background-color: #cccccc; width: 100px"
+                              >
+                                50+50=100
+                              </td>
+                              <td
+                                align="center"
+                                valign="middle"
+                                style="background-color: #cccccc; width: 50px"
+                              >
+                                --
+                              </td>
+                              <td
+                                align="center"
+                                valign="middle"
+                                style="background-color: #cccccc; width: 50px"
+                              >
+                                100
+                              </td>
+                              <td
+                                align="center"
+                                valign="middle"
+                                style="width: 50px"
+                              >
+                                28
+                              </td>
+                              <td
+                                align="center"
+                                valign="middle"
+                                style="width: 50px"
+                              >
+                                24
+                              </td>
+                              <td
+                                align="center"
+                                valign="middle"
+                                style="width: 50px"
+                              >
+                                --
+                              </td>
+                              <td
+                                align="center"
+                                valign="middle"
+                                style="width: 50px"
+                              >
+                                52
+                              </td>
+                              <td align="center" valign="middle">48.00</td>
+                              <td align="center" valign="middle">F</td>
+                              <td
+                                align="center"
+                                valign="middle"
+                                style="width: 50px"
+                              >
+                                PASS
+                              </td>
+                            </tr>
+                            <tr style="height: 30px">
+                              <td style="width: 300px">PAKISTAN STUDIES</td>
+                              <td
+                                align="center"
+                                valign="middle"
+                                style="background-color: #cccccc; width: 100px"
+                              >
+                                50+50=100
+                              </td>
+                              <td
+                                align="center"
+                                valign="middle"
+                                style="background-color: #cccccc; width: 50px"
+                              >
+                                --
+                              </td>
+                              <td
+                                align="center"
+                                valign="middle"
+                                style="background-color: #cccccc; width: 50px"
+                              >
+                                100
+                              </td>
+                              <td
+                                align="center"
+                                valign="middle"
+                                style="width: 50px"
+                              >
+                                49
+                              </td>
+                              <td
+                                align="center"
+                                valign="middle"
+                                style="width: 50px"
+                              >
+                                49
+                              </td>
+                              <td
+                                align="center"
+                                valign="middle"
+                                style="width: 50px"
+                              >
+                                --
+                              </td>
+                              <td
+                                align="center"
+                                valign="middle"
+                                style="width: 50px"
+                              >
+                                98
+                              </td>
+                              <td align="center" valign="middle">98.00</td>
+                              <td align="center" valign="middle">A+</td>
+                              <td
+                                align="center"
+                                valign="middle"
+                                style="width: 50px"
+                              >
+                                PASS
+                              </td>
+                            </tr>
+                            <tr style="height: 30px">
+                              <td style="width: 300px">GENERAL MATHEMATICS</td>
+                              <td
+                                align="center"
+                                valign="middle"
+                                style="background-color: #cccccc; width: 100px"
+                              >
+                                75+75=150
+                              </td>
+                              <td
+                                align="center"
+                                valign="middle"
+                                style="background-color: #cccccc; width: 50px"
+                              >
+                                --
+                              </td>
+                              <td
+                                align="center"
+                                valign="middle"
+                                style="background-color: #cccccc; width: 50px"
+                              >
+                                150
+                              </td>
+                              <td
+                                align="center"
+                                valign="middle"
+                                style="width: 50px"
+                              >
+                                55
+                              </td>
+                              <td
+                                align="center"
+                                valign="middle"
+                                style="width: 50px"
+                              >
+                                46
+                              </td>
+                              <td
+                                align="center"
+                                valign="middle"
+                                style="width: 50px"
+                              >
+                                --
+                              </td>
+                              <td
+                                align="center"
+                                valign="middle"
+                                style="width: 50px"
+                              >
+                                101
+                              </td>
+                              <td align="center" valign="middle">46.97</td>
+                              <td align="center" valign="middle">C</td>
+                              <td
+                                align="center"
+                                valign="middle"
+                                style="width: 50px"
+                              >
+                                PASS
+                              </td>
+                            </tr>
+                            <tr style="height: 30px">
+                              <td style="width: 300px">GENERAL SCIENCE</td>
+                              <td
+                                align="center"
+                                valign="middle"
+                                style="background-color: #cccccc; width: 100px"
+                              >
+                                75+75=150
+                              </td>
+                              <td
+                                align="center"
+                                valign="middle"
+                                style="background-color: #cccccc; width: 50px"
+                              >
+                                --
+                              </td>
+                              <td
+                                align="center"
+                                valign="middle"
+                                style="background-color: #cccccc; width: 50px"
+                              >
+                                150
+                              </td>
+                              <td
+                                align="center"
+                                valign="middle"
+                                style="width: 50px"
+                              >
+                                46
+                              </td>
+                              <td
+                                align="center"
+                                valign="middle"
+                                style="width: 50px"
+                              >
+                                48
+                              </td>
+                              <td
+                                align="center"
+                                valign="middle"
+                                style="width: 50px"
+                              >
+                                --
+                              </td>
+                              <td
+                                align="center"
+                                valign="middle"
+                                style="width: 50px"
+                              >
+                                94
+                              </td>
+                              <td align="center" valign="middle">48.00</td>
+                              <td align="center" valign="middle">C</td>
+                              <td
+                                align="center"
+                                valign="middle"
+                                style="width: 50px"
+                              >
+                                PASS
+                              </td>
+                            </tr>
+                            <tr style="height: 30px">
+                              <td style="width: 300px">
+                                ADVANCED ISLAMIC STUDIES
+                              </td>
+                              <td
+                                align="center"
+                                valign="middle"
+                                style="background-color: #cccccc; width: 100px"
+                              >
+                                75+75=150
+                              </td>
+                              <td
+                                align="center"
+                                valign="middle"
+                                style="background-color: #cccccc; width: 50px"
+                              >
+                                --
+                              </td>
+                              <td
+                                align="center"
+                                valign="middle"
+                                style="background-color: #cccccc; width: 50px"
+                              >
+                                150
+                              </td>
+                              <td
+                                align="center"
+                                valign="middle"
+                                style="width: 50px"
+                              >
+                                36
+                              </td>
+                              <td
+                                align="center"
+                                valign="middle"
+                                style="width: 50px"
+                              >
+                                24
+                              </td>
+                              <td
+                                align="center"
+                                valign="middle"
+                                style="width: 50px"
+                              >
+                                --
+                              </td>
+                              <td
+                                align="center"
+                                valign="middle"
+                                style="width: 50px"
+                              >
+                                60
+                              </td>
+                              <td align="center" valign="middle">36.62</td>
+                              <td align="center" valign="middle">F</td>
+                              <td
+                                align="center"
+                                valign="middle"
+                                style="width: 50px"
+                              >
+                                Fail
+                              </td>
+                            </tr>
+                            <tr style="height: 30px">
+                              <td style="width: 300px">ARABIC</td>
+                              <td
+                                align="center"
+                                valign="middle"
+                                style="background-color: #cccccc; width: 100px"
+                              >
+                                75+75=150
+                              </td>
+                              <td
+                                align="center"
+                                valign="middle"
+                                style="background-color: #cccccc; width: 50px"
+                              >
+                                --
+                              </td>
+                              <td
+                                align="center"
+                                valign="middle"
+                                style="background-color: #cccccc; width: 50px"
+                              >
+                                150
+                              </td>
+                              <td
+                                align="center"
+                                valign="middle"
+                                style="width: 50px"
+                              >
+                                35
+                              </td>
+                              <td
+                                align="center"
+                                valign="middle"
+                                style="width: 50px"
+                              >
+                                27
+                              </td>
+                              <td
+                                align="center"
+                                valign="middle"
+                                style="width: 50px"
+                              >
+                                --
+                              </td>
+                              <td
+                                align="center"
+                                valign="middle"
+                                style="width: 50px"
+                              >
+                                62
+                              </td>
+                              <td align="center" valign="middle">37.18</td>
+                              <td align="center" valign="middle">F</td>
+                              <td
+                                align="center"
+                                valign="middle"
+                                style="width: 50px"
+                              >
+                                Fail
+                              </td>
+                            </tr>
+                            <tr style="height: 30px; font-weight: bold">
+                              <td style="width: 300px">TOTAL</td>
+                              <td
+                                align="center"
+                                valign="middle"
+                                colspan="3"
+                                style="background-color: #cccccc; width: 100px"
+                              >
+                                1200
+                              </td>
+                              <td
+                                align="center"
+                                valign="middle"
+                                colspan="7"
+                                style="background-color: White; width: 50px"
+                              >
+                                MARKS OBTAINED:PASS 674 C
+                              </td>
+                            </tr>
+                          </table>
+                        </div>
+                        <br />
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td align="left" colspan="2">
+                        <label
+                          id="lblResultinSentences"
+                          style="
+                            font-weight: bold;
+                            font-size: 22px;
+                            font-family: Calibri;
+                          "
+                          >The candidate has Passed and obtained Marks Six Hundred and Seventy Four.</label
+                        >
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="2">
+                        <table
+                          id="tbl"
+                          width="100%"
+                          style="font-size: 15px"
+                          cellspacing="0"
+                          cellpadding="0"
+                        >
+                          <tr>
+                            <td
+                              colspan="2"
+                              style="font-family: &#39;Times New Roman&#39;, Times, serif;"
+                            >
+                              <label
+                                id="lblnote"
+                                style="font-family: Calibri; font-size: medium"
+                              >
+                                <h5>NOTE:</h5>
+                                (i)This provisional result intimation is issued
+                                as a notice only. Errors and omissions
+                                excepted.<u>
+                                  If a candidate finds any discrepancy in the
+                                  Result Intimation or desires correction in any
+                                  of the particulars, he/she may contact the
+                                  Board within 30 days after declaration of the
+                                  result.</u
+                                >
+                                Any entry appearing in it does not itself confer
+                                any right or privilege independently for the
+                                grant of proper certificate, which will be
+                                issued under the Rules/ Regulations.<br />(ii)The
+                                Star (*) indicates that the candidate has passed
+                                the subject/s with concessional marks under
+                                Board Rule. In case he/she is not willing to
+                                accept the concessional marks, necessary
+                                permission to reappear in the subject/s may be
+                                obtained within the schedule for submission of
+                                admission form and fee for the next immediate
+                                examination provided he/she has the chance/s to
+                                re-appear as a compartment candidate in the said
+                                examination.<br />(iii)Candidate intending to
+                                apply for <u>re-checking </u> of his/her paper/s
+                                may apply <b>Online</b
+                                ><u>
+                                  within 15 days after declaration of the
+                                  result.</u
+                                ><br />(iv)A candidate intending to improve
+                                his/her grade or marks are allowed to appear in
+                                Subject/s or Part-I or Part-II or both with one
+                                examination opportunity within one year of
+                                passing relevant examination in the same
+                                group/subjects in current/prevalent syllabus. If
+                                the candidate qualified subject/s with
+                                concessional marks, he/she will also have to
+                                appear and qualify in those subject/s for
+                                improvement of marks/grade. In case a candidate
+                                fails to improve his/her marks/grade in any part
+                                or subject/s, his/her previous result will
+                                remain intact.<br />
+                                (v) A candidate who was declared full fail in
+                                the examination will have to appear, if he
+                                intends, under prevalent/current syllabus.<br />(vi)
+                                If the result intimation is lost, the result
+                                intimation can be obtained by the candidate on
+                                payment of prescribed fee.</label
+                              >
+                            </td>
+                          </tr>
+                          <tr>
+                            <td colspan="1" style="width: 75%"></td>
+                            <td align="right">
+                              <img
+                                src="Images/mianzahid.jpeg"
+                                style="
+                                  height: 102px;
+                                  width: 102px;
+                                  margin-left: 0px;
+                                "
+                                alt=""
+                              />
+                              <br />
+                              <label
+                                style="
+                                  font-weight: bold;
+                                  font-family: Arial;
+                                  font-size: 12px;
+                                "
+                              >
+                                Controller of Examinations</label
+                              >
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="2">
+                        <label
+                          id="lbltabname"
+                          style="font-weight: bold; font-size: 15px"
+                        >
+                        </label>
+                      </td>
+                    </tr>
+                    <br />
+                    <tr>
+                      <td>
+                        <div id="mydiv"></div>
+                        <br />
+                      </td>
+                      <td align="right" class="style10">&nbsp;</td>
+                    </tr>
+                    <tr>
+                      <td colspan="2" align="right">&nbsp;</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+          <td style="width: 20%"></td>
+        </tr>
+      </table>
+
+      <script type="text/javascript">
+        //<![CDATA[
+        Checkbrowser("SSC_Ann_2024//1/A24/0214/66/2/1645/PIC/822467.jpg"); //]]>
+      </script>
+    </form>
+  </body>
+</html>
